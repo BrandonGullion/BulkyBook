@@ -4,13 +4,14 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace BulkyBook.Data
+namespace BulkyBook.DataAcess.Data
 {
     public class ApplicationDbContext : IdentityDbContext
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
+
         }
     }
 }
