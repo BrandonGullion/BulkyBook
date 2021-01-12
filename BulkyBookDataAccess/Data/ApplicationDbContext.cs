@@ -15,6 +15,7 @@ namespace BulkyBook.DataAcess.Data
         public DbSet<Category> Catergories { get; set; }
         public DbSet<CoverType> CoverTypes { get; set; }
         public DbSet<Product> Products { get; set; }
-
+        public DbSet<ApplicationUser> ApplicationUsers { get; set; }
+        public DbSet<Company> Companies { get; set; }
     }
 }

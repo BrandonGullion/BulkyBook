@@ -112,6 +112,23 @@ namespace BulkyBook.Areas.Admin.Controllers
                 _unitOfWork.Save();
                 return RedirectToAction(nameof(Index));
             }
+            else
+            {
+                productVM.CategoryList = _unitOfWork.Category.GetAll().Select(i => new SelectListItem
+                {
+                    Text = i.Name,
+                    Value = i.Id.ToString()
+                });
+                productVM.CoverTypeList = _unitOfWork.CoverType.GetAll().Select(i => new SelectListItem
+                {
+                    Text = i.Name,
+                    Value = i.Id.ToString()
+                });
+
+                if (productVM.Product.Id != 0)
+                    productVM.Product = _unitOfWork.Product.Get(productVM.Product.Id);
+            }
+
             return View(productVM);
         }
         #region API Calls
